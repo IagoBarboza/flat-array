@@ -9,8 +9,8 @@
 
 function flatArray(rawArray, finalArray) {
   rawArray.forEach(item => {
-    if (typeof item === "number") finalArray.push(item)
-    else flatArray(item, finalArray)
+    if (Array.isArray(item)) flatArray(item, finalArray)
+    else finalArray.push(item)
   });
   return finalArray
 }
